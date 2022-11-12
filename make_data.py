@@ -11,9 +11,9 @@ POS_NEG_SAMPLES = 10000
 new_samples_path = r'./new_samples'
 
 
-def make_data(length=3, interval_range=(2, 6)):
+def sample(num, device, length=3, interval_range=(2, 6)):
     all_samples = []
-    for sample_idx in range(POS_NEG_SAMPLES):
+    for sample_idx in range(num):
         pos = 0
         seq = []
         while pos < MAX_SEQ_LEN:
@@ -24,11 +24,19 @@ def make_data(length=3, interval_range=(2, 6)):
             pos += symbol_num
             seq.extend([1] * symbol_num)
         all_samples.append(seq)
-    all_samples = torch.tensor(all_samples, dtype=torch.long)
+    all_samples = torch.tensor(all_samples, dtype=torch.long, device=device)
+    return all_samples
+
+
+def make_data(length=3, interval_range=(2, 6)):
+    all_samples = sample(POS_NEG_SAMPLES, length, interval_range)
     print(all_samples[0])
     print(all_samples.shape)
     torch.save(all_samples, new_samples_path)
 
 
 if __name__ == '__main__':
-    make_data()
+    all_samples = torch.load(new_samples_path)
+    print(all_samples[0])
+    print(all_samples.shape)
+    # make_data()

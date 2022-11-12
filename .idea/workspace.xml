@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2797ef72-3c38-4384-8aa2-c7e5b01aa95c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/make_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/seqGAN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/seqGAN.iml" afterDir="false" />
+    <list default="true" id="2797ef72-3c38-4384-8aa2-c7e5b01aa95c" name="Default" comment="try new synthetic data">
+      <change afterPath="$PROJECT_DIR$/new_samples" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/make_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +132,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.make_data">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -224,9 +220,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.make_data" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -241,8 +237,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500059530491</updated>
-      <workItem from="1667890037006" duration="9304000" />
+      <workItem from="1667890037006" duration="12589000" />
     </task>
+    <task id="LOCAL-00001" summary="try new synthetic data">
+      <created>1668253952574</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668253952574</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -290,9 +294,13 @@
       <collection />
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="try new synthetic data" />
+    <option name="LAST_COMMIT_MESSAGE" value="try new synthetic data" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SeqGAN$main.coverage" NAME="main Coverage Results" MODIFIED="1667891353345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SeqGAN$make_data.coverage" NAME="make_data Coverage Results" MODIFIED="1667996700147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SeqGAN$main.coverage" NAME="main Coverage Results" MODIFIED="1668256745362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SeqGAN$make_data.coverage" NAME="make_data Coverage Results" MODIFIED="1668255192661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SeqGAN$test.coverage" NAME="test Coverage Results" MODIFIED="1667892255890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
