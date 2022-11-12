@@ -13,8 +13,9 @@ import discriminator
 import helpers
 
 
-CUDA = False
-VOCAB_SIZE = 5000
+CUDA = True
+# VOCAB_SIZE = 5000
+VOCAB_SIZE = 2
 MAX_SEQ_LEN = 20
 START_LETTER = 0
 BATCH_SIZE = 32
@@ -60,11 +61,12 @@ def train_generator_MLE(gen, gen_opt, oracle, real_data_samples, epochs):
         # each loss in a batch is loss per sample
         total_loss = total_loss / ceil(POS_NEG_SAMPLES / float(BATCH_SIZE)) / MAX_SEQ_LEN
 
-        # sample from generator and compute oracle NLL
-        oracle_loss = helpers.batchwise_oracle_nll(gen, oracle, POS_NEG_SAMPLES, BATCH_SIZE, MAX_SEQ_LEN,
-                                                   start_letter=START_LETTER, gpu=CUDA)
+        # # sample from generator and compute oracle NLL
+        # oracle_loss = helpers.batchwise_oracle_nll(gen, oracle, POS_NEG_SAMPLES, BATCH_SIZE, MAX_SEQ_LEN,
+        #                                            start_letter=START_LETTER, gpu=CUDA)
 
-        print(' average_train_NLL = %.4f, oracle_sample_NLL = %.4f' % (total_loss, oracle_loss))
+        print(' average_train_NLL = %.4f' % total_loss)
+        # print(' average_train_NLL = %.4f, oracle_sample_NLL = %.4f' % (total_loss, oracle_loss))
 
 
 def train_generator_PG(gen, gen_opt, oracle, dis, num_batches):
@@ -83,21 +85,21 @@ def train_generator_PG(gen, gen_opt, oracle, dis, num_batches):
         pg_loss.backward()
         gen_opt.step()
 
-    # sample from generator and compute oracle NLL
-    oracle_loss = helpers.batchwise_oracle_nll(gen, oracle, POS_NEG_SAMPLES, BATCH_SIZE, MAX_SEQ_LEN,
-                                                   start_letter=START_LETTER, gpu=CUDA)
+    # # sample from generator and compute oracle NLL
+    # oracle_loss = helpers.batchwise_oracle_nll(gen, oracle, POS_NEG_SAMPLES, BATCH_SIZE, MAX_SEQ_LEN,
+    #                                                start_letter=START_LETTER, gpu=CUDA)
+    #
+    # print(' oracle_sample_NLL = %.4f' % oracle_loss)
 
-    print(' oracle_sample_NLL = %.4f' % oracle_loss)
 
-
-def train_discriminator(discriminator, dis_opt, real_data_samples, generator, oracle, d_steps, epochs):
+def train_discriminator(discriminator, dis_opt, real_data_samples, generator, oracle_sample, d_steps, epochs):
     """
     Training the discriminator on real_data_samples (positive) and generated samples from generator (negative).
     Samples are drawn d_steps times, and the discriminator is trained for epochs epochs.
     """
 
     # generating a small validation set before training (using oracle and generator)
-    pos_val = oracle.sample(100)
+    pos_val = oracle_sample(100)
     neg_val = generator.sample(100)
     val_inp, val_target = helpers.prepare_discriminator_data(pos_val, neg_val, gpu=CUDA)
 
